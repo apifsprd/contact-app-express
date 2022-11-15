@@ -1,0 +1,48 @@
+<div class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class="mb-2">Contact</h1>
+                <a href="/contact/add" class="btn btn-primary btn-sm mb-3">+ Data Kontak</a>
+
+                <% if (msg.length !== 0) { %>
+                    <div class="alert alert-success" role="alert">
+                        <%= msg %> 
+                      </div>
+                <% } %>
+
+                <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nama Lengkap</th>
+                    <th scope="col">Nomor HP</th>
+                    <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (contacts.length === 0) { %>
+                        <tr>
+                            <td colspan="4">
+                                <div class="alert alert-danger fw-bold" role="alert">
+                                Data kontak masih kosong
+                                </div>
+                            </td>
+                        </tr>
+                    <% } %>
+                   <% contacts.forEach((contact, i) => { i++ %>
+                    <tr>
+                        <th scope="row"><%= i++ %> </th>
+                        <td><%= contact.nama %> </td>
+                        <td><%= contact.phone %> </td>
+                        <td>
+                            <a href="/contact/<%= contact.nama %> " class="btn btn-info btn-sm"><i class="bi bi-info-circle"></i> Detail</a>
+                        </td>
+                    </tr>
+                   <% }) %>
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
